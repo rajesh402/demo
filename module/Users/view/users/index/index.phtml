@@ -1,0 +1,42 @@
+<style type="text/css">
+    #UsersRegistrationForm input[type="checkbox"], #UsersRegistrationForm input[type="radio"]{margin:0px 3px 0px 7px;}
+    #UsersRegistrationForm label{width:100px;}
+    #UsersRegistrationForm fieldset label{width:93px;}
+    legend{margin-bottom: 9px;}
+    #submitbutton{margin-right:7px;}
+    #UsersRegistrationForm{width:404px;}
+    label.error{width:100%!important;margin:3px 0 15px;color:red;}
+</style>
+
+<?php
+$title = 'User Information Form';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form = $this->form;
+//$form->setAttribute('action', $this->url('users', array('action' => 'newuid')));
+$form->setAttribute('action', $this->basepath('users/index/newuid'));
+$form->prepare();
+echo $this->form()->openTag($form);
+
+echo $this->formHidden($form->get('id'));echo "<br>";
+echo $this->formRow($form->get('what'));echo "<br>";
+echo $this->formRow($form->get('fname'));echo "<br>";
+echo $this->formRow($form->get('lname'));echo "<br>";
+echo $this->formRow($form->get('ustate'));echo "<br>";
+echo $this->formRow($form->get('uzip'));echo "<br>";
+echo $this->formRow($form->get('ugender'));echo "<br>";
+echo $this->formRow($form->get('uemail'));echo "<br>";
+echo $this->formRow($form->get('ubirth'));echo "<br>";
+echo $this->formRow($form->get('username'));echo "<br>";
+echo $this->formRow($form->get('userpass'));echo "<br>";
+echo $this->formRow($form->get('confpass'));echo "<br>";
+
+echo $this->formSubmit($form->get('submit'));
+echo $this->formSubmit($form->get('reset'));
+echo $this->form()->closeTag();
+//echo $this->formCollection($form);
+?>
+
+

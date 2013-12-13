@@ -1,0 +1,49 @@
+<style type="text/css">
+    table tr td{text-align:center;}
+</style>
+<?php
+    $rows = $this->users;
+    //print_r($rows);
+    //$base = $this->basepath("users/index/");
+    echo $base =  $this->basePath('users/index/');
+    
+    /*foreach($rows as $row){
+        echo "<pre>";
+        print_r($row);
+    }
+    echo $row->id;
+    die;*/
+?>
+<div class="users_table">
+    <table cellspacing="0" cellpadding="0" border="1" style="width:100%;">
+        <tr>
+            <td>ID</td>
+            <td>FName</td>
+            <td>Lname</td>
+            <td>State</td>
+            <td>Zip</td>
+            <td>Email</td>
+            <td>Birth</td>
+            <td>UserName</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        <?php
+            foreach($rows as $row){ ?>
+             <tr>
+                <td><?php echo $row->id; ?></td>
+                <td><?php echo $row->fname; ?></td>
+                <td><?php echo $row->lname; ?></td>
+                <td><?php echo $row->ustate; ?></td>
+                <td><?php echo $row->uzip; ?></td>
+                <td><?php echo $row->uemail; ?></td>
+                <td><?php echo $row->ubirth; ?></td>
+                <td><?php echo $row->username; ?></td>
+                <td><a href="<?php echo $base.'edituser/'.$row->id?>">Edit</a></td>
+                <td><a href="<?php echo $base.'deleteuser/'.$row->id?>">Delete</a></td>
+             </tr>   
+        <?php    }       ?>
+        
+    </table>
+</div>
+
