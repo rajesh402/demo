@@ -10,6 +10,7 @@ use Users\model\Users;
 use Users\model\UsersTable;
 use Users\model\UserPossession;
 use Users\model\UserPossessionTable;
+use Users\model\ContactsTable;
 
 use Users\Form\UsersRegistrationForm;
 
@@ -92,6 +93,20 @@ class Module
                             $resultSetPrototype->setArrayObjectPrototype(new UserPossession());
                             return new TableGateway('user_possession',$dbAdapter,null,$resultSetPrototype);
                         },
+                        //For Contacts Table  
+                        'Users\Model\ContactsTable' => function($sm){
+                            $dbAdapter = $sm-> get('Zend\Db\Adapter\Adapter');
+                            $tableGateway = $sm->get('ContactsTableGateway');
+                            $table = new ContactsTable($dbAdapter, $tableGateway);
+                            return $table;
+                        },          
+                                
+                        'ContactsTableGateway' => function($sm){
+                            $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                            $resultSetPrototype = new ResultSet();
+                            //$resultSetPrototype->setArrayObjectPrototype(new Users());
+                            return new TableGateway('contacts',$dbAdapter,null,$resultSetPrototype);
+                        },       
                                 
                         'RegistrationFrm' => function($sm){
                             $dbAdapter = $sm -> get('Zend\Db\Adapter\Adapter');

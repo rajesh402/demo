@@ -184,6 +184,7 @@ class UsersRegistrationForm extends Form implements InputFilterProviderInterface
             )
         ));
          
+         
        
          //submit button
         $this->add(array(

@@ -34,6 +34,21 @@ return array(
                     ),
                 ),
             ),
+            
+             'fupload' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/users[/:cont][/:action][/:id]',
+                    'constraints' => array(
+                        'cont' => '[a-zA-Z][a-zA-Z0-9_-]*',                       
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*'                       
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Users\Controller\Fupload',
+                        'action'     => 'fupload',
+                    ),
+                ),
+            ),
 
             
         ),
@@ -41,7 +56,8 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Users\Controller\Index' => 'Users\Controller\IndexController',
-            'Users\Controller\Msg' => 'Users\Controller\MsgController'
+            'Users\Controller\Msg' => 'Users\Controller\MsgController',
+            'Users\Controller\Fupload' => 'Users\Controller\FuploadController'
         ),
     ),
     'view_manager' => array(
